@@ -6,18 +6,18 @@
 	<body>
 		
 		<h2>Adicionar Estabelecimento</h2>
-		<form id="addForm" action="" method="post">
+		<form id="addForm" action="" method="post" >
 			<label for="nome">Nome:</label>
-			<input type="text" name="estabelecimento.nome" id="nome"/>
+			<input class="form-control" placeholder="Nome" type="text" name="estabelecimento.nome" id="nome" />
 			<label for="endereco">Endereco:</label>
-			<input type="text" name="estabelecimento.endereco" id="endereco"/>
+			<input class="form-control" placeholder="Endereço" type="text" name="estabelecimento.endereco" id="endereco"/>
 			<label for="estacionamento">Estacionamento:</label>
 			<select name="estabelecimento.temEstacionamento" id="estacionamento">
 				<option value="true">Sim</option>
 				<option value="false">Não</option>
 			</select>
 			
-			<input type="submit" value="Adicionar"/>
+			<input class="btn btn-primary" type="submit" value="Adicionar"/>
 		</form>
 		
 		<table id="lista" cellpadding="0" cellspacing="0" width="100%">

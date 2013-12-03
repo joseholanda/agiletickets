@@ -7,12 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><decorator:title default="Ingresso Ágil"/></title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/stylesheets/scaffold.css"/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.css"/>" />
     <decorator:head/>
   </head>
   <body>
-  	<div id="header" class="clearfix">
+  	<div id="header" class="clearfix navbar navbar-default" role="navigation">
   		<h1>Ingresso Ágil</h1>
-  		<ul id="menu">
+  		<ul id="menu" >
   			<li><a href="<c:url value="/"/>">Sessões</a></li>
   			<li><a href="<c:url value="/espetaculos"/>">Espetáculos</a></li>
   			<li><a href="<c:url value="/estabelecimentos"/>">Estabelecimentos</a></li>
@@ -37,5 +38,6 @@
   		Feito pela Caelum no curso PM-87
   	</div>
     <script type="text/javascript" src="<c:url value="/javascripts/jquery.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
   </body>
 </html>

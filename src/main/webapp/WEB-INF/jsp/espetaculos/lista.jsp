@@ -6,11 +6,11 @@
 	<body>
 		
 		<h2>Adicionar Espetaculo</h2>
-		<form id="addForm" action="" method="post">
-			<label for="nome">Nome:</label>
-			<input type="text" name="espetaculo.nome" id="nome"/>
+		<form id="addForm" action="" method="post" >
+			<label for="descricao">Nome:</label>
+			<input class="form-control" placeholder="Nome" type="text" name="espetaculo.nome" id="nome"/>
 			<label for="descricao">Descrição:</label>
-			<input type="text" name="espetaculo.descricao" id="descricao"/>
+			<input class="form-control" placeholder="Descrição" type="text" name="espetaculo.descricao" id="descricao"/>
 			<label for="tipo">Tipo:</label>
 			<select id="tipo" name="espetaculo.tipo">
 				<option value="CINEMA">Cinema</option>
@@ -26,7 +26,7 @@
 				</c:forEach>
 			</select>
 			
-			<input type="submit" value="Adicionar"/>
+			<input class="btn btn-primary" type="submit" value="Adicionar"/>
 		</form>
 		
 		<table cellpadding="0" cellspacing="0" width="100%">

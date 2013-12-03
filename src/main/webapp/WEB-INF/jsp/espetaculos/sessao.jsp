@@ -7,12 +7,12 @@
 
 	<body>
 		<h1>${sessao.espetaculo.nome }</h1>
-		<h2>${sessao.dia } às ${sessao.hora}</h2>
-		<p><span class="label">Local:</span> ${sessao.espetaculo.estabelecimento.nome }</p>
-		<p><span class="label">Endereço:</span> ${sessao.espetaculo.estabelecimento.endereco }</p>
-		<p><span class="label">Descrição:</span> ${sessao.espetaculo.descricao }</p>
-		<p><span class="label">Duração:</span> ${sessao.duracaoEmMinutos } minutos</p>
-		<p><span class="label">Ingressos disponíveis:</span> ${sessao.ingressosDisponiveis }</p>
+		<h3>${sessao.dia } às ${sessao.hora}</h3>
+		<p><label >Local:</label> ${sessao.espetaculo.estabelecimento.nome }</p>
+		<p><label >Endereço:</label> ${sessao.espetaculo.estabelecimento.endereco }</p>
+		<p><label >Descrição:</label> ${sessao.espetaculo.descricao }</p>
+		<p><label >Duração:</label> ${sessao.duracaoEmMinutos } minutos</p>
+		<p><label >Ingressos disponíveis:</label> ${sessao.ingressosDisponiveis }</p>
 		<c:if test="${sessao.ingressosDisponiveis gt 0}">
 			<form action="/sessao/${sessao.id}/reserva" method="post">
 				<h3>Reservar ingresso</h3>
