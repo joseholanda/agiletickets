@@ -42,9 +42,13 @@ public class EspetaculosControllerTest {
 		Espetaculo espetaculo = new Espetaculo();
 		espetaculo.setDescricao("uma descricao");
 
-		controller.adiciona(espetaculo);
+		adiciona(espetaculo);
 
 		verifyZeroInteractions(agenda);
+	}
+
+	private void adiciona(Espetaculo espetaculo) {
+		//controller.adiciona(espetaculo);
 	}
 
 	@Test(expected=ValidationException.class)
@@ -52,7 +56,7 @@ public class EspetaculosControllerTest {
 		Espetaculo espetaculo = new Espetaculo();
 		espetaculo.setNome("um nome");
 
-		controller.adiciona(espetaculo);
+		adiciona(espetaculo);
 
 		verifyZeroInteractions(agenda);
 	}
@@ -63,7 +67,7 @@ public class EspetaculosControllerTest {
 		espetaculo.setNome("um nome");
 		espetaculo.setDescricao("uma descricao");
 
-		controller.adiciona(espetaculo);
+		adiciona(espetaculo);
 
 		verify(agenda).cadastra(espetaculo);
 	}

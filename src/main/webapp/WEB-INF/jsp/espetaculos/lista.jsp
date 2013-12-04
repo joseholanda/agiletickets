@@ -12,7 +12,7 @@
 			<label for="descricao">Descrição:</label>
 			<input class="form-control" placeholder="Descrição" type="text" name="espetaculo.descricao" id="descricao"/>
 			<label for="tipo">Tipo:</label>
-			<select id="tipo" name="espetaculo.tipo">
+			<select id="tipo" name="espetaculo.tipo" class="form-control">
 				<option value="CINEMA">Cinema</option>
 				<option value="SHOW">Show</option>
 				<option value="TEATRO">Teatro</option>
@@ -20,7 +20,7 @@
 				<option value="ORQUESTRA">Orquestra</option>
 			</select>
 			<label for="tipo">Local:</label>
-			<select id="tipo" name="espetaculo.estabelecimento.id">
+			<select id="tipo" name="espetaculo.estabelecimento.id" class="form-control">
 				<c:forEach items="${estabelecimentos}" var="estabelecimento">
 					<option value="${estabelecimento.id}">${estabelecimento.nome }</option>
 				</c:forEach>

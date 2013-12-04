@@ -12,7 +12,7 @@
 			<label for="endereco">Endereco:</label>
 			<input class="form-control" placeholder="Endereço" type="text" name="estabelecimento.endereco" id="endereco"/>
 			<label for="estacionamento">Estacionamento:</label>
-			<select name="estabelecimento.temEstacionamento" id="estacionamento">
+			<select name="estabelecimento.temEstacionamento" id="estacionamento" class="form-control">
 				<option value="true">Sim</option>
 				<option value="false">Não</option>
 			</select>

@@ -6,37 +6,42 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><decorator:title default="Ingresso Ágil"/></title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/stylesheets/stickFooter.css"/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/stylesheets/scaffold.css"/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/bootstrap/css/bootstrap.css"/>" />
     <decorator:head/>
   </head>
   <body>
-  	<div id="header" class="clearfix navbar navbar-default" role="navigation">
-  		<h1>Ingresso Ágil</h1>
-  		<ul id="menu" >
-  			<li><a href="<c:url value="/"/>">Sessões</a></li>
-  			<li><a href="<c:url value="/espetaculos"/>">Espetáculos</a></li>
-  			<li><a href="<c:url value="/estabelecimentos"/>">Estabelecimentos</a></li>
-  		</ul>
-  	</div>
-  	<c:if test="${not empty errors}">
-  		<ul id="errors">
-	  		<c:forEach items="${errors}" var="error">
-	  			<li>${error.category } - ${error.message }</li>
-	  		</c:forEach>
-  		</ul>
-  	</c:if>
-  	<c:if test="${not empty message}">
-  		<div id="message">
-  			${message }
+  <div id="wrap">
+  	<div class="container">
+		  	<div id="header" class="clearfix navbar navbar-default" role="navigation">
+		  		<h1>Ingresso Ágil</h1>
+		  		<ul id="menu" >
+		  			<li><a href="<c:url value="/"/>">Sessões</a></li>
+		  			<li><a href="<c:url value="/espetaculos"/>">Espetáculos</a></li>
+		  			<li><a href="<c:url value="/estabelecimentos"/>">Estabelecimentos</a></li>
+		  		</ul>
+		  	</div>
+		  	<c:if test="${not empty errors}">
+		  		<ul id="errors">
+			  		<c:forEach items="${errors}" var="error">
+			  			<li>${error.category } - ${error.message }</li>
+			  		</c:forEach>
+		  		</ul>
+		  	</c:if>
+		  	<c:if test="${not empty message}">
+		  		<div id="message">
+		  			${message }
+		  		</div>
+		  	</c:if>
+		  	<div id="content">
+			    <decorator:body/>
+		  	</div>
   		</div>
-  	</c:if>
-  	<div id="content">
-	    <decorator:body/>
   	</div>
-  	<div id="footer">
-  		Feito pela Caelum no curso PM-87
-  	</div>
+	  	<div id="footer">
+	  		Feito pela Caelum no curso PM-87
+	  	</div>
     <script type="text/javascript" src="<c:url value="/javascripts/jquery.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
   </body>
