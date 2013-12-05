@@ -3,6 +3,7 @@ package br.com.caelum.agiletickets.models;
 import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -100,28 +101,11 @@ public class Espetaculo {
       */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
-		int quantidade = Days.daysBetween(inicio, fim).getDays();
-		List<Sessao> sessoes = new ArrayList<Sessao>();		
-		if(periodicidade.equals(Periodicidade.SEMANAL)){
-			quantidade = Weeks.weeksBetween(inicio, fim).getWeeks();			
-		}		
-		for (int i = 0; i <= quantidade; i++) {
-			criaSessaoConformePeriodicidade(inicio, horario, periodicidade,
-					sessoes, i);
-		}			
-		return sessoes;
-	}
-
-	private void criaSessaoConformePeriodicidade(LocalDate inicio,
-			LocalTime horario, Periodicidade periodicidade,
-			List<Sessao> sessoes, int i) {
-		Sessao sessao = new Sessao();
-		sessao.setEspetaculo(this);
-		if(periodicidade.equals(Periodicidade.SEMANAL))
-			sessao.setInicio(inicio.toDateTime(horario).plusWeeks(i));
-		else
-			sessao.setInicio(inicio.toDateTime(horario).plusDays(i));			
-		sessoes.add(sessao);
+		
+		if (inicio.isAfter(fim))
+			return new ArrayList<Sessao>();
+		
+		return periodicidade.getPeriodicidade().criaSessao(this, inicio, fim, horario);
 	}
 	
 	public boolean Vagas(int qtd, int min)

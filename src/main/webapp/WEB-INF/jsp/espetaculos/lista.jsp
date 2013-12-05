@@ -6,27 +6,46 @@
 	<body>
 		
 		<h2>Adicionar Espetaculo</h2>
-		<form id="addForm" action="" method="post" >
-			<label for="descricao">Nome:</label>
-			<input class="form-control" placeholder="Nome" type="text" name="espetaculo.nome" id="nome"/>
-			<label for="descricao">Descrição:</label>
-			<input class="form-control" placeholder="Descrição" type="text" name="espetaculo.descricao" id="descricao"/>
-			<label for="tipo">Tipo:</label>
-			<select id="tipo" name="espetaculo.tipo" class="form-control">
-				<option value="CINEMA">Cinema</option>
-				<option value="SHOW">Show</option>
-				<option value="TEATRO">Teatro</option>
-				<option value="BALLET">Balé</option>
-				<option value="ORQUESTRA">Orquestra</option>
-			</select>
-			<label for="tipo">Local:</label>
-			<select id="tipo" name="espetaculo.estabelecimento.id" class="form-control">
-				<c:forEach items="${estabelecimentos}" var="estabelecimento">
-					<option value="${estabelecimento.id}">${estabelecimento.nome }</option>
-				</c:forEach>
-			</select>
-			
-			<input class="btn btn-primary" type="submit" value="Adicionar"/>
+		<form id="addForm" action="" method="post" class="form-horizontal">
+			<div class="form-group">
+				<label for="nome" class="col-sm-2">Nome:</label> 
+					<div class="col-sm-10">
+						<input class="form-control" placeholder="Nome" type="text" name="espetaculo.nome" id="nome"/>
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="descricao" class="col-sm-2">Descrição:</label> 
+					<div class="col-sm-10">
+						<input class="form-control" placeholder="Descrição" type="text" name="espetaculo.descricao" id="descricao"/>
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="tipo" class="col-sm-2">Tipo:</label> 
+					<div class="col-sm-10">
+						<select id="tipo" name="espetaculo.tipo" class="form-control">
+							<option value="CINEMA">Cinema</option>
+							<option value="SHOW">Show</option>
+							<option value="TEATRO">Teatro</option>
+							<option value="BALLET">Balé</option>
+							<option value="ORQUESTRA">Orquestra</option>
+						</select>
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="tipo" class="col-sm-2">Local:</label> 
+					<div class="col-sm-10">
+						<select id="tipo" name="espetaculo.estabelecimento.id" class="form-control">
+							<c:forEach items="${estabelecimentos}" var="estabelecimento">
+								<option value="${estabelecimento.id}">${estabelecimento.nome }</option>
+							</c:forEach>
+						</select>
+					</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input class="btn btn-primary" type="submit" value="Adicionar"/>
+				</div>
+			</div>
 		</form>
 		
 		<table cellpadding="0" cellspacing="0" width="100%">

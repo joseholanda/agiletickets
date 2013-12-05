@@ -48,7 +48,7 @@ public class EspetaculosControllerTest {
 	}
 
 	private void adiciona(Espetaculo espetaculo) {
-		//controller.adiciona(espetaculo);
+		controller.adiciona(espetaculo);
 	}
 
 	@Test(expected=ValidationException.class)
