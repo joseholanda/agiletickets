@@ -130,7 +130,7 @@ public class EspetaculoTest {
 		Espetaculo espetaculo = new Espetaculo();
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, Periodicidade.DIARIA);
 		// Verifica se foi criada uma Sessão
-		Assert.assertEquals(3, sessoes.size());
+		Assert.assertEquals(2, sessoes.size());
 		// Verifica se Sessão foi criada com data e horário adequados
 		Assert.assertEquals(inicio.toDateTime(horario), sessoes.get(0).getInicio());
 		Assert.assertEquals(inicio.toDateTime(horario).plusDays(1), sessoes.get(1).getInicio());
