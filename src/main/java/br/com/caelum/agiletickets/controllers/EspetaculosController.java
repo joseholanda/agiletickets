@@ -67,7 +67,6 @@ public class EspetaculosController {
 		result.redirectTo(this).lista();
 	}
 
-
 	@Get @Path("/sessao/{id}")
 	public void sessao(Long id) {
 		Sessao sessao = agenda.sessao(id);

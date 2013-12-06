@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 <%@page pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-=======
-<%@page pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
->>>>>>> origin/precos
 <html>
 <head>
 <title>${sessao.espetaculo.nome }</title>
 </head>
 
-<<<<<<< HEAD
 <body>
 	<h1>${sessao.espetaculo.nome }</h1>
 	<h4>${sessao.dia } às ${sessao.hora}</h4>
@@ -35,6 +29,12 @@
 			<div class="col-sm-10">${sessao.duracaoEmMinutos } minutos</div>
 		</div>
 		<div class="form-group">
+			<label class="col-sm-2">Preço:</label>
+			<div class="col-sm-10">
+				<fmt:formatNumber type="currency" value="${sessao.preco}" />
+			</div>
+		</div>
+		<div class="form-group">
 			<label class="col-sm-2">Ingressos disponíveis:</label>
 			<div class="col-sm-10">${sessao.ingressosDisponiveis }</div>
 		</div>
@@ -49,7 +49,7 @@
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2" for="qtde">Quantidade</label>
-				<div class="col-sm-10">
+				<div class="col-sm-4">
 					<input id="qtde" name="quantidade" class="form-control" />
 				</div>
 			</div>
@@ -61,26 +61,5 @@
 		</form>
 	</c:if>
 </body>
-=======
-	<body>
-		<h1>${sessao.espetaculo.nome }</h1>
-		<h2>${sessao.dia } às ${sessao.hora}</h2>
-		<p><span class="label">Local:</span> ${sessao.espetaculo.estabelecimento.nome }</p>
-		<p><span class="label">Endereço:</span> ${sessao.espetaculo.estabelecimento.endereco }</p>
-		<p><span class="label">Descrição:</span> ${sessao.espetaculo.descricao }</p>
-		<p><span class="label">Duração:</span> ${sessao.duracaoEmMinutos } minutos</p>
-		<p><span class="label">Preco:</span> <fmt:formatNumber type="currency" value="${sessao.preco}" /></p>
-		<p><span class="label">Ingressos disponíveis:</span> ${sessao.ingressosDisponiveis }</p>
-		<c:if test="${sessao.ingressosDisponiveis gt 0}">
-			<form action="/sessao/${sessao.id}/reserva" method="post">
-				<h3>Reservar ingresso</h3>
-				<label for="qtde">Quantidade</label>
-				<input id="qtde" name="quantidade"/>
-				
-				<input type="submit" value="Reservar"/>
-			</form>
-		</c:if>
-	</body>
->>>>>>> origin/precos
 
 </html>

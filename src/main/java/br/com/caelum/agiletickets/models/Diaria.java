@@ -17,6 +17,7 @@ public class Diaria implements IPeriodicidade {
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		for (int i = 0; i <= quantidade; i++) {
 			Sessao sessao = new Sessao();
+			sessao.setTotalIngressos(10);
 			sessao.setEspetaculo(espetaculo);
 			sessao.setInicio(inicio.toDateTime(horario).plusDays(i));
 			sessoes.add(sessao);
