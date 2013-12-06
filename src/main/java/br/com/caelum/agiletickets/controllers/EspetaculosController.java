@@ -78,8 +78,9 @@ public class EspetaculosController {
 	}
 
 	@Post @Path("/sessao/{sessaoId}/reserva")
-	public void reserva(Long sessaoId, final Integer quantidade) {
+	public void reserva(Long sessaoId, final Integer quantidade, boolean meiaEntrada) {
 		Sessao sessao = agenda.sessao(sessaoId);
+		
 		if (sessao == null) {
 			result.notFound();
 			return;
@@ -100,6 +101,10 @@ public class EspetaculosController {
 
 		BigDecimal precoTotal = sessao.getPreco().multiply(BigDecimal.valueOf(quantidade));
 
+		if (meiaEntrada) {
+			precoTotal = precoTotal.multiply(new BigDecimal(0.5));
+		}
+		
 		result.include("message", "Sessao reservada com sucesso por " + CURRENCY.format(precoTotal));
 
 		result.redirectTo(IndexController.class).index();

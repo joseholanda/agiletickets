@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.testng.Assert;
 
 import br.com.caelum.agiletickets.domain.Agenda;
 import br.com.caelum.agiletickets.domain.DiretorioDeEstabelecimentos;
@@ -87,7 +88,7 @@ public class EspetaculosControllerTest {
 	public void naoDeveReservarZeroIngressos() throws Exception {
 		when(agenda.sessao(1234l)).thenReturn(new Sessao());
 
-		controller.reserva(1234l, 0);
+		controller.reserva(1234l, 0, false);
 
 		verifyZeroInteractions(result);
 	}
@@ -100,7 +101,7 @@ public class EspetaculosControllerTest {
 
 		when(agenda.sessao(1234l)).thenReturn(sessao);
 
-		controller.reserva(1234l, 5);
+		controller.reserva(1234l, 5, false);
 
 		verifyZeroInteractions(result);
 	}
@@ -113,8 +114,30 @@ public class EspetaculosControllerTest {
 
 		when(agenda.sessao(1234l)).thenReturn(sessao);
 
-		controller.reserva(1234l, 3);
+		controller.reserva(1234l, 3,false);
 
 		assertThat(sessao.getIngressosDisponiveis(), is(2));
 	}
+	
+	@Test
+	public void deveRetornarMetadeDoPrecoTotalDosIngressosSeMeiaEntrada() throws Exception {
+		Sessao sessao = new Sessao();
+		sessao.setTotalIngressos(5);
+		sessao.setPreco(new BigDecimal(20));
+
+		when(agenda.sessao(1234l)).thenReturn(sessao);
+		
+		Integer ingressosAReservar = 5;
+		
+		BigDecimal precoTotal = sessao.getPreco().multiply(BigDecimal.valueOf(ingressosAReservar));
+		
+		BigDecimal meia = precoTotal.multiply(BigDecimal.valueOf(0.5));
+		
+		controller.reserva(1234l, ingressosAReservar, true);
+
+		BigDecimal precoTotalSessao = sessao.getPreco().multiply(BigDecimal.valueOf(sessao.getIngressosReservados()));
+		Assert.assertEquals(meia, precoTotalSessao.multiply(BigDecimal.valueOf(0.5)));
+		
+	}
+	
 }

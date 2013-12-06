@@ -34,6 +34,7 @@
 				<fmt:formatNumber type="currency" value="${sessao.preco}" />
 			</div>
 		</div>
+		
 		<div class="form-group">
 			<label class="col-sm-2">Ingressos disponíveis:</label>
 			<div class="col-sm-10">${sessao.ingressosDisponiveis }</div>
@@ -51,6 +52,15 @@
 				<label class="col-sm-2" for="qtde">Quantidade</label>
 				<div class="col-sm-4">
 					<input id="qtde" name="quantidade" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="checkbox">
+				        <label>
+				          <input name="meiaEntrada" id="meiaEntrada" type="checkbox"> Meia entrada
+				        </label>
+				    </div>
 				</div>
 			</div>
 			<div class="form-group">
