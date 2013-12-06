@@ -38,14 +38,14 @@ public class EspetaculosController {
 		this.result = result;
 	}
 
-	@Get @Path("espetaculos")
+	@Get @Path("/espetaculos")
 	public List<Espetaculo> lista() {
 		// inclui a lista de estabelecimentos
 		result.include("estabelecimentos", estabelecimentos.todos());
 		return agenda.espetaculos();
 	}
 
-	@Post @Path("espetaculos")
+	@Post @Path("/espetaculos")
 	public void adiciona(Espetaculo espetaculo) {
 		// aqui eh onde fazemos as varias validacoes
 		// se nao tiver nome, avisa o usuario
@@ -63,7 +63,7 @@ public class EspetaculosController {
 	}
 
 
-	@Get @Path("sessao/{id}")
+	@Get @Path("/sessao/{id}")
 	public void sessao(Long id) {
 		Sessao sessao = agenda.sessao(id);
 		if (sessao == null) {
@@ -73,7 +73,7 @@ public class EspetaculosController {
 		result.include("sessao", sessao);
 	}
 
-	@Post @Path("sessao/{sessaoId}/reserva")
+	@Post @Path("/sessao/{sessaoId}/reserva")
 	public void reserva(Long sessaoId, final Integer quantidade) {
 		Sessao sessao = agenda.sessao(sessaoId);
 		if (sessao == null) {
@@ -98,7 +98,7 @@ public class EspetaculosController {
 		result.redirectTo(IndexController.class).index();
 	}
 
-	@Get @Path("espetaculo/{espetaculoId}/sessoes")
+	@Get @Path("/espetaculo/{espetaculoId}/sessoes")
 	public void sessoes(Long espetaculoId) {
 		Espetaculo espetaculo = carregaEspetaculo(espetaculoId);
 
@@ -106,7 +106,7 @@ public class EspetaculosController {
 	}
 
 
-	@Post @Path("espetaculo/{espetaculoId}/sessoes")
+	@Post @Path("/espetaculo/{espetaculoId}/sessoes")
 	public void cadastraSessoes(Long espetaculoId, LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		Espetaculo espetaculo = carregaEspetaculo(espetaculoId);
 
